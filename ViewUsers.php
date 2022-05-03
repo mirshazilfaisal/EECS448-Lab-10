@@ -7,7 +7,7 @@ if ($mysqli->connect_errno) {
 }
      $query = "SELECT UserID from Users";
     $answer = $mysqli->query($query);
-echo "<p style='color: Brown; font-size:30px'> ViewUsers</p>";
+echo "<p style='color: Black; font-size:30px'> ViewUsers</p>";
 
     echo "<table style='border: 3px solid black; font-size:24px'>";
     echo "<tr>";

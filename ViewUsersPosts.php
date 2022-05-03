@@ -5,10 +5,10 @@ if ($mysqli->connect_errno) {
  printf("Connect failed: %s\n", $mysqli->connect_error);
  exit();
 }
-echo "<p style='color: Brown; font-size:30px'> ViewUserPosts</p>";
+echo "<p style='color: Black; font-size:30px'> ViewUserPosts</p>";
 
 	$username=$_POST["UserID"];
-	echo"<p style='color: Red; font-size:20px'>Posts of ".$username."<br></p>";
+	echo"<p style='color: Green; font-size:20px'>Posts of ".$username."<br></p>";
 
      $query = "SELECT content from Posts where author_id='$username'";
     $answer = $mysqli->query($query);
