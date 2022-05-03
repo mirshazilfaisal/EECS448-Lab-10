@@ -7,9 +7,9 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="ViewUserPosts.php" method="post">
+    <form action="ViewUsersPosts.php" method="post">
         <label style='font-size:24px'>User:</label>
-        <select name="user_id">
+        <select name="UserID">
         <?php
         $mysqli = new mysqli("mysql.eecs.ku.edu", "s663m589", "eigheiN3","s663m589");
 
@@ -17,11 +17,11 @@
          printf("Connect failed: %s\n", $mysqli->connect_error);
          exit();
         }
-        $query="SELECT user_id from Users";
+        $query="SELECT UserID from Users";
         $answer=$mysqli->query($query);
         
         while($row=$answer->fetch_assoc()){
-            echo "<option value ='" . $row["user_id"] . "'>" . $row["user_id"] . "</option>";$mysqli->close();
+            echo "<option value ='" . $row["UserID"] . "'>" . $row["UserID"] . "</option>";$mysqli->close();
         }
         ?>
         </select>

@@ -5,7 +5,7 @@ if ($mysqli->connect_errno) {
  printf("Connect failed: %s\n", $mysqli->connect_error);
  exit();
 }
-     $query = "SELECT user_id from Users";
+     $query = "SELECT UserID from Users";
     $answer = $mysqli->query($query);
 echo "<p style='color: Brown; font-size:30px'> ViewUsers</p>";
 
@@ -16,7 +16,7 @@ echo "<p style='color: Brown; font-size:30px'> ViewUsers</p>";
     if ($answer->num_rows > 0){
         while ($row = $answer->fetch_assoc()){
             echo "<tr>";
-            echo "<td style='border: 2px solid black; color:Green'>" . $row["user_id"] . "</td>";
+            echo "<td style='border: 2px solid black; color:Green'>" . $row["UserID"] . "</td>";
             echo "</tr>";
         }
     }

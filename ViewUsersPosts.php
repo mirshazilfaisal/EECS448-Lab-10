@@ -7,7 +7,7 @@ if ($mysqli->connect_errno) {
 }
 echo "<p style='color: Brown; font-size:30px'> ViewUserPosts</p>";
 
-	$username=$_POST["user_id"];
+	$username=$_POST["UserID"];
 	echo"<p style='color: Red; font-size:20px'>Posts of ".$username."<br></p>";
 
      $query = "SELECT content from Posts where author_id='$username'";

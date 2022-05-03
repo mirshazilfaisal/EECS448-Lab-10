@@ -13,7 +13,7 @@ if($user== "")
 	exit();
 }
 
-$query = "INSERT INTO Users (user_id) VALUES ('".$user."')";
+$query = "INSERT INTO Users (UserID) VALUES ('".$user."')";
 if($mysqli->query($query))
 	{
 		echo "New user ".$user." stored successfully. <br>";

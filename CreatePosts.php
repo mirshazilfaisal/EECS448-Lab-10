@@ -14,13 +14,13 @@ $post=$_POST["post"];
         exit();
     }
     
-    $query = "SELECT user_id from Users";
+    $query = "SELECT UserID from Users";
     $answer = $mysqli->query($query);
 
     $user_found = FALSE;
     if ($answer->num_rows > 0){
         while ($row = $answer->fetch_assoc()){
-            if ($row["user_id"] == $user){
+            if ($row["UserID"] == $user){
                 $user_found = TRUE;
             }
         }
