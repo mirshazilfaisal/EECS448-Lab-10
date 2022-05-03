@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="DeletePost.php" method="post">
+        <?php
+        $mysqli = new mysqli("mysql.eecs.ku.edu", "s663m589", "eigheiN3", "s663m589");
+        /* check connection */
+        if ($mysqli->connect_errno) {
+         printf("Connect failed: %s\n", $mysqli->connect_error);
+         exit();
+        }	
+        echo "<p style='color: Brown; font-size:30px'> DeletePost</p>";
+        
+        
+                $query = "SELECT post_id, content, author_id from Posts";
+                        $answer = $mysqli->query($query);
+        
+                        echo "<table style='border: 5px solid; width: 100%'>";
+                        echo "<tr>";
+                        echo "<td style='border:3px solid; font-size:25px'>" . "Post" . "</td>";
+                        echo "<td style='border:3px solid; font-size:25px'>" . "Author ID" . "</td>";
+                        echo "<td style='border:3px solid; font-size:25px'>" . "Delete?" . "</td>";
+                        echo "</tr>";
+                        if ($answer->num_rows > 0){
+                            while ($row = $answer->fetch_assoc()){
+                                echo "<tr>";
+                                echo "<td style='border:2px solid'>" . $row["content"] . "</td>";
+                                echo "<td style='border:2px solid'>" . $row["author_id"] . "</td>";
+                                echo "<td style='border:2px solid'><input type='checkbox' name='" . $row["post_id"] . "'></td>";
+                                echo "</tr>";
+                            }
+                        }
+                        echo "</table>";
+        
+                        $mysqli->close();
+                    ?>
+        <br><br>
+        <button type="submit">Delete (Post(s))</button>
+    </form>
+</body>
+
+</html>
